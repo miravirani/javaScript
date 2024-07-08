@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function addData() {
+            const key = document.getElementById("key").value
+            const value = document.getElementById("value").value
+            sessionStorage.setItem(key, value)
+        }
+
+        function getData() {
+            const key = document.getElementById("key").value
+            console.log("local data == ", sessionStorage.getItem(key))
+        }
+
+        function removeSpecificData() {
+            const key = document.getElementById("key").value
+            sessionStorage.removeItem(key)
+        }
+
+        function removeAllData() {
+            sessionStorage.clear()
+        }
+
+    </script>
+
+    <input type="text" name="key" id="key">
+    <input type="text" name="value" id="value">
+
+    <button onclick="addData()">add</button>
+    <button onclick="getData()">get</button>
+    <button onclick="removeSpecificData()">remove one key</button>
+    <button onclick="removeAllData()">clear all</button>
+</body>
+
+</html>

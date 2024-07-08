@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+     <script>
+        function setCookie() {
+            document.cookie = "token = 123ert;max-age-3600"
+            document.cookie = "name = weetech;"
+            document.cookie = "std = 12;"
+        }
+
+        function getCookie() {
+            console.log(document.cookie);
+
+            let cookieJson = {}
+            const array = document.cookie
+
+            const cookieArr = array.split("; ")
+            console.log(cookieArr);
+
+            cookieArr.forEach((value) => {
+                cookieJson[value.split("=")[0]] = value.split("=")[1]
+            })
+            console.log(cookieJson)
+        }
+    </script>
+
+    <button type="submit" onclick="setCookie()">set data</button>
+    <button type="submit" onclick="getCookie()">get data</button>   
+    
+</body>
+
+</html>
