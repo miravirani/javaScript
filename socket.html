@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+    <!-- <link rel="stylesheet" href="index.js"> -->
+    <!-- <script src="./index.js" ></script> -->
+    <script>
+        // const IOServer = require("socket.io-client");
+
+        const socket = io("ws://192.168.1.32:7000")
+        <!-- const socket = io("ws://localhost:7000") -->
+
+        console.log(socket);
+
+        socket.emit("register", {
+            name: "meera"
+        })
+
+        socket.on("caught_message", (doc) => {
+            console.log("doc ==", doc)
+        })
+
+
+        function hiEmitTd() {
+            socket.emit("jkl", {
+                message: "i am meera"
+            })
+        }
+
+        function messageEmitter() {
+            socket.emit("drive_message", {
+                from: "meera",
+                to: "himanshi",
+                message: "hi"
+            })
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="hiEmitTd()">message</button>
+    <button onclick="messageEmitter()">message hi</button>
+    <!-- setTimeout(() => {
+        console.log("time out")
+        socket.emit("jkl", {
+            message
+        })
+    },6000) -->
+</body>
+
+</html>
